@@ -6,7 +6,7 @@ const webpack = requier('webpack')
 
 environment.plugins.prepend('Provide',
   new webpack.ProvidePlugins({
-    $: 'jquery/scr/jquery',
-    jQuery: 'jquery/scr/jquery'
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery'
   })
 )
