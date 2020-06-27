@@ -1,8 +1,8 @@
+<%= render "shared/errors", obj: post %>
 <%= form_with model: post, local: true do |f| %>
-  <%# <%= render "shared/errors", obj: post %> %>
   <div class="form-group">
-    <%= f.label :new_image %>
-    <%= f.file_field :new_image, class: "form-control" %>
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :caption %>

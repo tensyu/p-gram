@@ -1,18 +1,63 @@
 class PostsController < ApplicationController
+  # before_action :authenticate_user!
+  # before_action :set_post, only: [:edit, :update, :destroy]
+
+  def index
+    @posts = Post.order(created_at: :desc)
+    # @comment = Comment.new
+  end
+
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to @post
+    # @post.attributes = {
+    #   user_id: current_user.id
+    # }
+    # @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to @post, notice: '投稿を保存しました'
+    else
+      render :new
+    end
   end
-  
+
+  def show
+    @post = Post.find(params[:id])
+    # @post = Post.with_attached_image
+    #             .includes(user: [avatar_attachment: :blob],
+    #                       comments: [user: [avatar_attachment: :blob]])
+    #             .find(params[:id])
+    # @comment = Comment.new
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to @post, notice: "投稿を更新しました。"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    # @post.destroy
+    # redirect_to posts_path, notice: "投稿を削除しました。"
+  end
+
   private
-  
+
   def post_params
     params.require(:post).permit(:caption, :image)
   end
-end
 
+  def set_post
+    @post = Post.find(params[:id])
+  end
+end
