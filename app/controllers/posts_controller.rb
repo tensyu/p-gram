@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # before_action :authenticate_user!
-  # before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     # @post = Post.with_attached_image
     #             .includes(user: [avatar_attachment: :blob],
     #                       comments: [user: [avatar_attachment: :blob]])
@@ -34,11 +33,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to @post, notice: "投稿を更新しました。"
     else
@@ -47,8 +44,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    # @post.destroy
-    # redirect_to posts_path, notice: "投稿を削除しました。"
+    @post.destroy
+    redirect_to posts_path, notice: "投稿を削除しました。"
   end
 
   private
