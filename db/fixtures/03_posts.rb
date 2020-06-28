@@ -3,12 +3,13 @@
 
 unless Rails.env.production?
   # 10件のデータを用意する
-  POST_MAX = 10
+  POST_MAX = 60
 
   post_attrs = Proc.new do
     Array.new(POST_MAX) do |idx|
       { id: idx + 1,
-        caption: Faker::Lorem.paragraph
+        caption: Faker::Lorem.paragraph,
+        user_id: User.pluck(:id).sample
       }
     end
   end
