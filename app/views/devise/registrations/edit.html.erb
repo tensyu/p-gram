@@ -1,11 +1,11 @@
 <div class="col-lg-6 mx-auto">
   <div class="col-lg-12 mb-3">
-    <h1 class="text-center logo">Edit</h1>
-    <%# <h1 class="text-center logo"><%= t ".title" %></h1> %>
+    <h1 class="text-center logo">Profile</h1>
+    <%# <h1 class="text-center logo"><%= t ".title" %></h1>
   </div>
 
   <% if current_user.avatar.attached? %>
-    <%= image_tag current_user.avatar.variant(combine_options:{ resize: "800x800^", crop: "800x800+0+0", gravity: :center }).processed, class: "img-fluid" %>
+    <%= image_tag current_user.avatar.variant(resize_to_fill: [500, 500]).processed, class: "img-fluid" %>
   <% else %>
     <%= image_tag "no_image", class: "img-fluid" %>
   <% end %>

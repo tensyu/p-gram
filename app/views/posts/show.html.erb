@@ -11,7 +11,7 @@
       <div class="col-lg-4">
         <div class="card-body">
           <% if @post.user.avatar.attached? %>
-            <%= image_tag @post.user.avatar.variant(resize_to_fill: [50, 50]), processed, class: 'img-thumbnail rounded-circle' %>
+            <%= image_tag @post.user.avatar.variant(resize_to_fill: [50, 50]). processed, class: "img-fluid rounded-circle" %>
           <% else %>
             <%= image_tag "no_image", class: "img-fluid rounded-circle" %>
           <% end %>

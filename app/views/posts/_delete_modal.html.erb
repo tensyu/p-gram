@@ -8,8 +8,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <p><%= image_tag post.image.variant(combine_options: { resize: "800x800^", crop: "800x800+0+0", gravity: :center }).processed, class: "img-fluid" %></p>
-        <p><%= "#{post.caption}を削除しますか？" %></p>
+        <p><%= image_tag post.image.variant(resize_to_fill: [300, 300]). processed, class: "img-fluid" %></p>
+        <p><%#= "#{@post.caption}を削除しますか？" %></p>
+        <p><%= "#投稿を削除しますか？" %></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
