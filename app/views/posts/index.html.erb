@@ -1,22 +1,12 @@
 <div class="col-6 mx-auto">
-  <%# @posts.each do |post| %>
-    <%#= render "post", post: post %>
-  <%# end %>
-
-  <%#= render partial: "post", collection: @posts %>
-
   <%= render "shared/errors", obj: @comment %>
-  <%= render @posts %>
+  <div class="post">
+    <%= render @posts %>
+    <%= paginate @posts %>
+  </div>
 </div>
 
-<%# <div class="col-8 mx-auto"> %>
-  <%# <div class="post"> %>
-
-    <%# = paginate @posts %>
-  <%# </div> %>
-<%# </div> %>
-
-<%# <script>
+<script>
   $(window).on('scroll', function() {
       // 画面スクロールの判定用の変数を用意
       scrollHeight = $(document).height();
@@ -35,4 +25,10 @@
         });
       }
   });
-</script> %>
+</script>
+
+  <%# @posts.each do |post| %>
+    <%#= render "post", post: post %>
+  <%# end %>
+
+  <%#= render partial: "post", collection: @posts %>
