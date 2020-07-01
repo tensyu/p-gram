@@ -9,6 +9,9 @@ ja:
       title: New Post
     post:
       submit: コメント
+      delete: 削除
     show:
       edit: 編集する
       delet: 投稿削除
+      delete: 削除
+      submit: コメント

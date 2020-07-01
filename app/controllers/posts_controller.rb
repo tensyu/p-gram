@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     #             .includes(user: [avatar_attachment: :blob],
     #                       comments: [user: [avatar_attachment: :blob]])
     #             .find(params[:id])
-    # @comment = Comment.new
+    @comment = Comment.new
   end
 
   def edit

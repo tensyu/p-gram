@@ -1,4 +1,4 @@
-<div class="col-lg-8 mx-auto">
+<div class="col-lg-10 mx-auto">
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-lg-7">
@@ -8,7 +8,7 @@
           <%= image_tag "no_image", class: "card-img" %>
         <% end %>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-5">
         <div class="card-body">
           <% if @post.user.avatar.attached? %>
             <%= image_tag @post.user.avatar.variant(resize_to_fill: [50, 50]). processed, class: "img-fluid rounded-circle" %>
@@ -19,7 +19,24 @@
           <hr>
           <div class="scroll">
             <%= simple_format (@post.caption) %>
+
+            <% @post.comments.each do |comment| %>
+              <p>
+                <%= image_tag comment.user.avatar.variant(resize_to_fit: [30, 30]).processed, class: 'img-fluid rounded-circle' %>
+                <%= comment.user.name %>
+                <%= comment.body %>
+                <% if current_user.id == comment.user.id %>
+                  <%= link_to t(".delete"), comment, method: :delete, data: {confirm: '削除してよろしいですか？'}  %>
+                <% end %>
+              </p>
+            <% end %>
+
           </div>
+          <%= form_with model: @comment, url: comments_path, class: "form-group row mx-auto", local: true do |f| %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.text_field :body, class: "col-8 form-control" %>
+            <%= f.submit t(".submit"), class: "col-4" %>
+          <% end %>
         </div>
       </div>
     </div>
