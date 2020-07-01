@@ -1,0 +1,23 @@
+ja:
+  devise:
+    registrations:
+      edit:
+        account_delete: アカウント削除
+        back: 戻る
+        change_email: 変更したくない場合は空白のままにして下さい
+        current_pass_message: 変更を確認するには現在のパスワードが必要です
+        current_password: 変更を確認するために現在のパスワードを入力して下さい
+        delete_account: アカウントを削除する
+        log_out: ログアウト
+        minimum_password_length: "%{length} 文字以上を入力して下さい"
+        submit: 更新
+        title: Profile
+      new:
+        log_in: ログイン
+        minimum_password_length: "%{length} 文字以上を入力して下さい"
+        sign_up: アカウント登録
+        title: Sign Up
+    sessions:
+      new:
+        log_in: ログイン
+        title: Log In
