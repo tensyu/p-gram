@@ -5,11 +5,11 @@
 
   <%#= render partial: "post", collection: @posts %>
 
+  <%= render "shared/errors", obj: @comment %>
   <%= render @posts %>
 </div>
 
 <%# <div class="col-8 mx-auto"> %>
-  <%#= render "shared/errors", obj: @comment %>
   <%# <div class="post"> %>
 
     <%# = paginate @posts %>
