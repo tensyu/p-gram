@@ -3,7 +3,7 @@
 
 unless Rails.env.production?
   # 10件のデータを用意する
-  POST_MAX = 50
+  POST_MAX = 200
 
   post_attrs = Proc.new do
     Array.new(POST_MAX) do |idx|
