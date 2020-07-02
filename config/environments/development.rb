@@ -62,4 +62,12 @@ Rails.application.configure do
 
   config.web_console.whitelisted_ips = %w( 0.0.0.0/0 ::/0)
 
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Post',    association: :user
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Comment', association: :user
+  end
+
 end
