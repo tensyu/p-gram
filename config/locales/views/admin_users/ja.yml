@@ -3,3 +3,6 @@ ja:
     sessions:
       new:
         sign_in: サインイン
+    registration:
+      new:
+        sign_in:　サインイン
